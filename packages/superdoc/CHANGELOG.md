@@ -1,3 +1,10 @@
+# [1.7.0-next.8](https://github.com/superdoc-dev/superdoc/compare/v1.7.0-next.7...v1.7.0-next.8) (2026-01-15)
+
+
+### Bug Fixes
+
+* add column balancing and INDEX field support ([#1753](https://github.com/superdoc-dev/superdoc/issues/1753)) ([b2a6f6b](https://github.com/superdoc-dev/superdoc/commit/b2a6f6b931c505751f54ff0fe6cc1b8f7071fbbf))
+
 # [1.7.0-next.7](https://github.com/superdoc-dev/superdoc/compare/v1.7.0-next.6...v1.7.0-next.7) (2026-01-15)
 
 
