@@ -82,6 +82,27 @@ const detectDocumentOrigin = (docx) => {
   return 'unknown';
 };
 
+/**
+ * Detect the document-level threading profile for comments based on file structure.
+ * @param {ParsedDocx} docx The parsed docx object
+ * @returns {import('@superdoc/common').CommentThreadingProfile}
+ */
+const detectCommentThreadingProfile = (docx) => {
+  const hasCommentsExtended = !!docx['word/commentsExtended.xml'];
+  const hasCommentsExtensible = !!docx['word/commentsExtensible.xml'];
+  const hasCommentsIds = !!docx['word/commentsIds.xml'];
+
+  return {
+    defaultStyle: hasCommentsExtended ? 'commentsExtended' : 'range-based',
+    mixed: false,
+    fileSet: {
+      hasCommentsExtended,
+      hasCommentsExtensible,
+      hasCommentsIds,
+    },
+  };
+};
+
 export const createDocumentJson = (docx, converter, editor) => {
   const json = carbonCopy(getInitialJSON(docx));
   if (!json) return null;
@@ -89,6 +110,7 @@ export const createDocumentJson = (docx, converter, editor) => {
   if (converter) {
     importFootnotePropertiesFromSettings(docx, converter);
     converter.documentOrigin = detectDocumentOrigin(docx);
+    converter.commentThreadingProfile = detectCommentThreadingProfile(docx);
   }
 
   // Track initial document structure
