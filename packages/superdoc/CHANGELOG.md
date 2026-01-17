@@ -1,3 +1,10 @@
+# [1.8.0-next.4](https://github.com/superdoc-dev/superdoc/compare/v1.8.0-next.3...v1.8.0-next.4) (2026-01-17)
+
+
+### Bug Fixes
+
+* **layout:** default missing lineRule to auto for OOXML line spacing ([d0fd582](https://github.com/superdoc-dev/superdoc/commit/d0fd582451e586b8423bf988b8fb9099b924c872))
+
 # [1.8.0-next.3](https://github.com/superdoc-dev/superdoc/compare/v1.8.0-next.2...v1.8.0-next.3) (2026-01-16)
 
 
