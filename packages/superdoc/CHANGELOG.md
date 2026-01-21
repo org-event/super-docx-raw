@@ -1,3 +1,10 @@
+# [1.8.0-next.9](https://github.com/superdoc-dev/superdoc/compare/v1.8.0-next.8...v1.8.0-next.9) (2026-01-21)
+
+
+### Features
+
+* view options print and web ([#1793](https://github.com/superdoc-dev/superdoc/issues/1793)) ([82adcb1](https://github.com/superdoc-dev/superdoc/commit/82adcb1912c7703399b0aac394248bf23da4ce41))
+
 # [1.8.0-next.8](https://github.com/superdoc-dev/superdoc/compare/v1.8.0-next.7...v1.8.0-next.8) (2026-01-21)
 
 
