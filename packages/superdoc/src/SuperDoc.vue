@@ -499,6 +499,7 @@ const editorOptions = (doc) => {
     suppressDefaultDocxStyles: proxy.$superdoc.config.suppressDefaultDocxStyles,
     disableContextMenu: proxy.$superdoc.config.disableContextMenu,
     jsonOverride: proxy.$superdoc.config.jsonOverride,
+    viewOptions: proxy.$superdoc.config.viewOptions,
     layoutEngineOptions: useLayoutEngine
       ? {
           ...(proxy.$superdoc.config.layoutEngineOptions || {}),
@@ -850,7 +851,11 @@ watch(getFloatingComments, () => {
   <n-config-provider abstract preflight-style-disabled>
     <div
       class="superdoc"
-      :class="{ 'superdoc--with-sidebar': showCommentsSidebar, 'high-contrast': isHighContrastMode }"
+      :class="{
+        'superdoc--with-sidebar': showCommentsSidebar,
+        'superdoc--web-layout': proxy.$superdoc.config.viewOptions?.layout === 'web',
+        'high-contrast': isHighContrastMode,
+      }"
       :style="superdocStyleVars"
     >
       <div class="superdoc__layers layers" ref="layers" role="group">
