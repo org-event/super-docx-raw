@@ -1,3 +1,10 @@
+# [1.9.0-next.2](https://github.com/superdoc-dev/superdoc/compare/v1.9.0-next.1...v1.9.0-next.2) (2026-01-24)
+
+
+### Bug Fixes
+
+* remove redundant parameters in pm-adapter (SD-1587) ([#1823](https://github.com/superdoc-dev/superdoc/issues/1823)) ([e315ad4](https://github.com/superdoc-dev/superdoc/commit/e315ad4e8ecfe15542a9042503048909a2f7cdb5))
+
 # [1.9.0-next.1](https://github.com/superdoc-dev/superdoc/compare/v1.8.3...v1.9.0-next.1) (2026-01-23)
 
 
