@@ -1,3 +1,10 @@
+# [1.9.0-next.5](https://github.com/superdoc-dev/superdoc/compare/v1.9.0-next.4...v1.9.0-next.5) (2026-01-24)
+
+
+### Bug Fixes
+
+* preserve text selection on right-click in Firefox ([#1826](https://github.com/superdoc-dev/superdoc/issues/1826)) ([0a23338](https://github.com/superdoc-dev/superdoc/commit/0a2333815608581c5766467aa122f5753431525f))
+
 # [1.9.0-next.4](https://github.com/superdoc-dev/superdoc/compare/v1.9.0-next.3...v1.9.0-next.4) (2026-01-24)
 
 
