@@ -1,3 +1,10 @@
+# [1.9.0-next.11](https://github.com/superdoc-dev/superdoc/compare/v1.9.0-next.10...v1.9.0-next.11) (2026-01-28)
+
+
+### Bug Fixes
+
+* apply correct style to inserted links ([#1871](https://github.com/superdoc-dev/superdoc/issues/1871)) ([36e3c4b](https://github.com/superdoc-dev/superdoc/commit/36e3c4b066a02fbcac4e53cc3df2c3cefaf207fb))
+
 # [1.9.0-next.10](https://github.com/superdoc-dev/superdoc/compare/v1.9.0-next.9...v1.9.0-next.10) (2026-01-28)
 
 
