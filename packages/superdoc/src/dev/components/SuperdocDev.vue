@@ -574,6 +574,16 @@ if (scrollTestMode.value) {
     return originalScrollTo(...args);
   };
 }
+const logDocumentStructure = () => {
+  const editorInstance = activeEditor.value?.editor || activeEditor.value;
+  if (editorInstance && typeof editorInstance.getJSON === 'function') {
+    console.log('Document Structure (JSON):', editorInstance.getJSON());
+    // Also log plain text for convenience
+    // console.log('Document Text:', editorInstance.state.doc.textBetween(0, editorInstance.state.doc.content.size, '\n', '\n'));
+  } else {
+    console.warn('[Dev] No active editor found or getJSON not supported', activeEditor.value);
+  }
+};
 </script>
 
 <template>
@@ -587,6 +597,7 @@ if (scrollTestMode.value) {
           <div class="dev-app__brand-meta">
             <div class="dev-app__meta-row">
               <span class="dev-app__pill">SUPERDOC LABS</span>
+              <button class="dev-app__header-export-btn" @click="logDocumentStructure">Log Structure</button>
               <span class="badge">Layout Engine: {{ useLayoutEngine && !useWebLayout ? 'ON' : 'OFF' }}</span>
               <span v-if="useWebLayout" class="badge">Web Layout: ON</span>
               <span v-if="scrollTestMode" class="badge badge--warning">Scroll Test: ON</span>

@@ -83,7 +83,7 @@ const editorOptions = computed(() => {
     onCommentsLoaded,
     suppressSkeletonLoader: true,
     users: [], // For comment @-mentions, only users that have access to the document
-    pagination: useLayoutEngine.value,
+    pagination: true,// useLayoutEngine.value,
     annotations: true,
     editorCtor: useLayoutEngine.value ? PresentationEditor : undefined,
   };
@@ -162,6 +162,16 @@ const toggleLayoutEngine = () => {
   url.searchParams.set('layout', nextValue ? '1' : '0');
   window.location.href = url.toString();
 };
+
+const logDocumentStructure = () => {
+  if (activeEditor) {
+    console.log('Document Structure (JSON):', activeEditor.getJSON());
+    // Also log plain text for convenience
+    // console.log('Document Text:', activeEditor.state.doc.textBetween(0, activeEditor.state.doc.content.size, '\n', '\n'));
+  } else {
+    console.warn('[Dev] No active editor found');
+  }
+};
 </script>
 
 <template>
@@ -207,6 +217,7 @@ const toggleLayoutEngine = () => {
             ></textarea>
           </div>
           <button class="dev-app__header-export-btn" @click="exportDocx">Export</button>
+          <button class="dev-app__header-export-btn" @click="logDocumentStructure">Log Structure</button>
         </div>
       </div>
 
