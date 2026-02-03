@@ -37,7 +37,7 @@ const sidebarInstanceKey = ref(0);
 const urlParams = new URLSearchParams(window.location.search);
 const isInternal = urlParams.has('internal');
 const testUserEmail = urlParams.get('email') || 'user@superdoc.com';
-const testUserName = urlParams.get('name') || `SuperDoc ${Math.floor(1000 + Math.random() * 9000)}`;
+const testUserName = urlParams.get('name') || `SuperDocUser - ${Math.floor(1000 + Math.random() * 9000)}`;
 const userRole = urlParams.get('role') || 'editor';
 const useLayoutEngine = ref(urlParams.get('layout') !== '0');
 const useWebLayout = ref(urlParams.get('view') === 'web');
@@ -330,11 +330,11 @@ const init = async () => {
       // 'hrbr-fields': {},
 
       // To test this dev env with collaboration you must run a local collaboration server here.
-      // collaboration: {
-      //   url: `ws://localhost:3050/docs/${testDocumentId}`,
-      //   token: 'token',
-      //   providerType: 'hocuspocus',
-      // },
+      collaboration: {
+        url: `ws://localhost:1234`, // Hocuspocus local server
+        token: 'token',
+        providerType: 'hocuspocus',
+      },
       ai: {
         // Provide your Harbour API key here for direct endpoint access
         // apiKey: 'test',
