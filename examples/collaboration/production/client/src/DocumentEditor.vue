@@ -6,6 +6,10 @@ import { SuperDoc } from 'superdoc';
 
 // Default documents
 import defaultDocument from '/default.docx?url';
+import UploadFile from './UploadFile.vue';
+
+// Define DOCX mime type locally to avoid missing dependency
+const DOCX = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 
 const route = useRoute();
 const superdoc = shallowRef(null);
@@ -14,11 +18,31 @@ const hoveredUser = ref(null);
 const currentUser = ref(null);
 const showToolbar = ref(true);
 
-const generateUserInfo = async () => {
-  const wsUrl = import.meta.env.VITE_WS_URL || 'ws://localhost:3050';
-  const apiUrl = wsUrl.replace('ws://', 'http://').replace('wss://', 'https://');
+const handleImport = async (file) => {
+  if (!superdoc.value?.activeEditor) return;
+  try {
+    await superdoc.value.activeEditor.replaceFile(file);
+    console.log('Document imported successfully');
+  } catch (error) {
+    console.error('Failed to import document:', error);
+  }
+};
 
-  const response = await fetch(`${apiUrl}/user`);
+const exportDocx = async () => {
+  const editor = superdoc.value?.activeEditor;
+  if (!editor) return;
+  
+  const result = await editor.exportDocx();
+  const blob = new Blob([result], { type: DOCX });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'exported.docx';
+  a.click();
+};
+
+const generateUserInfo = async () => {
+  const response = await fetch('/user');
   return await response.json();
 };
 
@@ -33,7 +57,7 @@ const handleImageUpload = (file) => {
         const mediaMap = superdoc.value.ydoc.getMap('media');
         mediaMap.set(mediaPath, dataUrl);
       }
-    
+
       resolve(dataUrl);
     };
     reader.onerror = reject;
@@ -44,7 +68,6 @@ const handleImageUpload = (file) => {
 const setupMediaObserver = (ydoc, editor) => {
   const mediaMap = ydoc.getMap('media');
   const imageStorage = editor?.storage?.image;
-  
   // Set up observer for real-time media sync
   mediaMap.observe((ymapEvent) => {
     ymapEvent.changes.keys.forEach((change, key) => {
@@ -63,7 +86,6 @@ const setupMediaObserver = (ydoc, editor) => {
       }
     });
   });
-  
   // Initial sync of existing media
   mediaMap.forEach((mediaUrl, mediaPath) => {
     if (imageStorage && mediaUrl) {
@@ -107,7 +129,6 @@ const onAwarenessUpdate = (users) => {
 const init = async () => {
   const documentId = route.params.documentId;
   const wsUrl = import.meta.env.VITE_WS_URL || 'ws://localhost:3050';
-  const apiUrl = wsUrl.replace('ws://', 'http://').replace('wss://', 'https://');
   const user = await generateUserInfo();
   currentUser.value = user;
 
@@ -137,7 +158,7 @@ const init = async () => {
       console.log('SuperDoc is ready', event);
       const editor = event.superdoc.activeEditor;
       console.log('Active editor:', editor);
-      
+
       // Set up media observer for collaboration
       const ydoc = event.superdoc.ydoc;
       if (ydoc && editor) {
@@ -195,9 +216,13 @@ onBeforeUnmount(() => {
       <div class="current-user" v-if="currentUser">
         Connected as: {{ currentUser.name }}
       </div>
+      <div class="document-controls">
+         <UploadFile :update-file="handleImport" />
+         <button class="control-btn" @click="exportDocx">Export DOCX</button>
+      </div>
       <div class="user-avatars">
-        <div 
-          v-for="user in connectedUsers" 
+        <div
+          v-for="user in connectedUsers"
           :key="user.name"
           class="user-avatar"
           :style="{ backgroundColor: user.color }"
@@ -205,7 +230,7 @@ onBeforeUnmount(() => {
           @mouseleave="() => { console.log('Left hover'); hoveredUser = null; }"
         >
           {{ user.name.split(' ').map(part => part.charAt(0)).join('').toUpperCase() }}
-          <div 
+          <div
             v-if="hoveredUser === user.name"
             class="user-tooltip"
           >
@@ -214,12 +239,21 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </div>
-    <div v-if="showToolbar" id="superdoc-toolbar"></div>
+    <div v-if="showToolbar" class="superdoc-toolbar">
+      <div id="superdoc-toolbar"></div>
+    </div>
     <div id="superdoc"></div>
   </div>
 </template>
 
 <style>
+.superdoc-toolbar{
+  width: 100%;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 .user-presence {
   width: 100%;
   display: flex;
@@ -287,7 +321,7 @@ onBeforeUnmount(() => {
 .document-controls {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin: 10px 16px;
 }
 
 .control-btn {
@@ -316,7 +350,17 @@ onBeforeUnmount(() => {
   border-radius: 8px 8px 0 0;
   background: #ffffff;
 }
-
+.ruler {
+  display: flex;
+  justify-content: center;
+  background: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  padding: 0;
+  min-height: 25px;
+}
+.pagination-separator {
+  background-color: gray;
+}
 .editor-container {
   border: 1px solid #ccc;
   border-radius: 0 0 8px 8px;

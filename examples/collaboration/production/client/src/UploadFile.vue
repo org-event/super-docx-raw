@@ -18,7 +18,7 @@ const handleFileChange = () => {
 
 <template>
   <div>
-    <button class="custom-button" @click="fileInput?.click()">Import document</button>
+    <button class="control-btn" @click="fileInput?.click()">Import document</button>
     <input 
         type="file" 
         ref="fileInput" 
