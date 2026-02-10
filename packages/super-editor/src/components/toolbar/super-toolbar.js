@@ -14,6 +14,7 @@ import {
 } from '../../extensions/image/imageHelpers/index.js';
 import { toolbarIcons } from './toolbarIcons.js';
 import { toolbarTexts } from './toolbarTexts.js';
+import { toolbarTextsRu } from './toolbarTextsRu.js';
 import { getQuickFormatList } from '@extensions/linked-styles/index.js';
 import { getAvailableColorOptions, makeColorOption, renderColorOptions } from './color-dropdown-helpers.js';
 import { isInTable } from '@helpers/isInTable.js';
@@ -41,6 +42,7 @@ import { NodeSelection } from 'prosemirror-state';
  * @property {string[]} [toolbarGroups=['left', 'center', 'right']] - Groups to organize toolbar items
  * @property {string} [role='editor'] - Role of the toolbar ('editor' or 'viewer')
  * @property {Object} [icons] - Custom icons for toolbar items
+ * @property {string} [locale='en'] - Language of the toolbar ('en' or 'ru')
  * @property {Object} [texts] - Custom texts for toolbar items
  * @property {string} [mode='docx'] - Editor mode
  * @property {string[]} [excludeItems=[]] - Items to exclude from the toolbar
@@ -170,7 +172,8 @@ export class SuperToolbar extends EventEmitter {
     toolbarGroups: ['left', 'center', 'right'],
     role: 'editor',
     icons: { ...toolbarIcons },
-    texts: { ...toolbarTexts },
+    locale: 'ru',
+    texts: { ...toolbarTextsRu },
     fonts: null,
     hideButtons: true,
     responsiveToContainer: false,
@@ -209,8 +212,9 @@ export class SuperToolbar extends EventEmitter {
       ...config.icons,
     };
 
+    const defaultTexts = this.config.locale === 'ru' ? toolbarTextsRu : toolbarTexts;
     this.config.texts = {
-      ...toolbarTexts,
+      ...defaultTexts,
       ...config.texts,
     };
 

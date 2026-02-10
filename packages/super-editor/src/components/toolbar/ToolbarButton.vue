@@ -88,6 +88,10 @@ const onFontSizeInput = (event) => {
 const caretIcon = computed(() => {
   return active.value ? toolbarIcons.dropdownCaretUp : toolbarIcons.dropdownCaretDown;
 });
+
+const labelRu = computed(() => {
+  return label.value === 'Editing' ? 'Редактирование' : label.value;
+});
 </script>
 
 <template>
@@ -116,7 +120,7 @@ const caretIcon = computed(() => {
       </ToolbarButtonIcon>
 
       <div class="button-label" v-if="label && !hideLabel && !inlineTextInputVisible">
-        {{ label }}
+        {{ labelRu }}
       </div>
 
       <span v-if="inlineTextInputVisible">
