@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "superdoc": "^0.31.2",
+    "superdoc": "git+https://github.com/org-event/super-docx-raw.git#localisation-fix",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3",
     "yjs": "13.6.19"
