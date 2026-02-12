@@ -10,8 +10,8 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      'superdoc/style.css': path.resolve(__dirname, 'node_modules/superdoc/packages/super-editor/dist/style.css'),
-      'superdoc': path.resolve(__dirname, 'node_modules/superdoc/packages/super-editor/dist/super-editor.es.js')
+      'superdoc/style.css': path.resolve(__dirname, 'node_modules/superdoc/dist/style.css'),
+      'superdoc': path.resolve(__dirname, 'node_modules/superdoc/dist/super-editor.es.js')
     }
   },
   server: {
