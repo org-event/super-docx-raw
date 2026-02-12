@@ -2,7 +2,7 @@
   "name": "harbour-enterprises",
   "private": true,
   "license": "AGPL-3.0",
-  "packageManager": "pnpm@10.25.0",
+  "packageManager": "pnpm@10.29.3",
   "files": [
     "packages/*/dist",
     "packages/*/package.json",

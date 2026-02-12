@@ -7,7 +7,7 @@
     "start": "tsx src/index.ts"
   },
   "dependencies": {
-    "superdoc": "latest",
+    "superdoc": "workspace:*",
     "jsdom": "^27.3.0"
   },
   "devDependencies": {
