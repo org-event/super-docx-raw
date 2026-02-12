@@ -3,6 +3,13 @@
   "private": true,
   "license": "AGPL-3.0",
   "packageManager": "pnpm@10.25.0",
+  "files": [
+    "packages/*/dist",
+    "packages/*/package.json",
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "vitest run",
     "test:debug": "pnpm --prefix packages/super-editor run test:debug",
