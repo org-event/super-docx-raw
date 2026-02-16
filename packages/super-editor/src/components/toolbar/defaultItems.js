@@ -501,7 +501,7 @@ export const makeDefaultItems = ({
       icon: toolbarIcons.deleteRow,
       props: {
         'data-item': 'btn-tableActions-option',
-        ariaLabel: 'Delete row',
+        ariaLabel: 'Удалить строку',
       },
     },
     {
