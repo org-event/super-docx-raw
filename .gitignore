@@ -4,9 +4,9 @@ logs
 .DS_Store
 .temp
 node_modules
-dist
-dist-ssr
-dist-types
+# dist
+# dist-ssr
+# dist-types
 *.local
 .env
 .npmrc

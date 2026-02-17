@@ -1,0 +1,41 @@
+/**
+ * Style definition from Word document
+ * @typedef {Object} LinkedStyle
+ * @property {string} id - Style ID (e.g., 'Heading1', 'Normal')
+ * @property {string} type - Style type ('paragraph' or 'character')
+ * @property {Object} definition - Style definition from Word
+ */
+/**
+ * Configuration options for LinkedStyles
+ * @typedef {Object} LinkedStylesOptions
+ * @category Options
+ */
+/**
+ * @module LinkedStyles
+ * @sidebarTitle Linked Styles
+ * @snippetPath /snippets/extensions/linked-styles.mdx
+ */
+export const LinkedStyles: Extension<{}, Record<string, never>>;
+/**
+ * Style definition from Word document
+ */
+export type LinkedStyle = {
+    /**
+     * - Style ID (e.g., 'Heading1', 'Normal')
+     */
+    id: string;
+    /**
+     * - Style type ('paragraph' or 'character')
+     */
+    type: string;
+    /**
+     * - Style definition from Word
+     */
+    definition: any;
+};
+/**
+ * Configuration options for LinkedStyles
+ */
+export type LinkedStylesOptions = any;
+import { Extension } from '@core/Extension.js';
+//# sourceMappingURL=linked-styles.d.ts.map

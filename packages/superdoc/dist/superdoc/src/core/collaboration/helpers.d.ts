@@ -1,0 +1,5 @@
+export function initCollaborationComments(superdoc: Object): void;
+export function initSuperdocYdoc(superdoc: Object): void;
+export function makeDocumentsCollaborative(superdoc: Object): any;
+export function syncCommentsToClients(superdoc: Object, event: Object): void;
+//# sourceMappingURL=helpers.d.ts.map

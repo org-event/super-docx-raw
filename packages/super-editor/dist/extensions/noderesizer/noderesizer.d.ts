@@ -1,0 +1,19 @@
+/**
+ * Configuration options for NodeResizer
+ * @typedef {Object} NodeResizerOptions
+ * @category Options
+ */
+export const NodeResizerKey: PluginKey<any>;
+/**
+ * @module NodeResizer
+ * @sidebarTitle Node Resizer
+ * @snippetPath /snippets/extensions/node-resizer.mdx
+ */
+export const NodeResizer: Extension<{}, Record<string, never>>;
+/**
+ * Configuration options for NodeResizer
+ */
+export type NodeResizerOptions = any;
+import { PluginKey } from 'prosemirror-state';
+import { Extension } from '@core/Extension.js';
+//# sourceMappingURL=noderesizer.d.ts.map

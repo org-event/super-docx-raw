@@ -1,0 +1,1 @@
+{"version":3,"file":"trackedTransaction.d.ts","sourceRoot":"","sources":["../../../../src/extensions/track-changes/trackChangesHelpers/trackedTransaction.js"],"names":[],"mappings":"AAgBO,wDAHI;IAAE,EAAE,EAAE,OAAO,mBAAmB,EAAE,WAAW,CAAC;IAAC,KAAK,EAAE,OAAO,mBAAmB,EAAE,WAAW,CAAC;IAAC,IAAI,EAAE,OAAO,6BAA6B,EAAE,IAAI,CAAA;CAAE,GAC/I,OAAO,mBAAmB,EAAE,WAAW,CA4HnD"}

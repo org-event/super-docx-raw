@@ -1,6 +1,6 @@
 {
   "name": "@superdoc/super-editor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "AGPL-3.0",
   "type": "module",
   "files": [

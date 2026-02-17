@@ -1,0 +1,32 @@
+/**
+ * Configuration options for ShapeContainer
+ * @typedef {Object} ShapeContainerOptions
+ * @category Options
+ * @property {Object} [htmlAttributes] - HTML attributes for shape container elements
+ */
+/**
+ * Attributes for shape container nodes
+ * @typedef {Object} ShapeContainerAttributes
+ * @category Attributes
+ * @property {string} [fillcolor] - Background color for the shape
+ * @property {string} [style] - CSS style string
+ * @property {string} [sdBlockId] @internal - Internal block tracking ID
+ * @property {Object} [wrapAttributes] @internal - Internal wrapper attributes
+ * @property {Object} [attributes] @internal - Internal attributes storage
+ */
+/**
+ * @module ShapeContainer
+ * @sidebarTitle Shape Container
+ * @snippetPath /snippets/extensions/shape-container.mdx
+ */
+export const ShapeContainer: Node<Record<string, never>, Record<string, never>, Record<string, unknown>>;
+/**
+ * Configuration options for ShapeContainer
+ */
+export type ShapeContainerOptions = any;
+/**
+ * Attributes for shape container nodes
+ */
+export type ShapeContainerAttributes = any;
+import { Node } from '@core/index.js';
+//# sourceMappingURL=shape-container.d.ts.map
