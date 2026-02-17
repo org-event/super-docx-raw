@@ -8,6 +8,30 @@ This project demonstrates how to use the `superdoc` library in a Vue 3 applicati
 - [Node.js](https://nodejs.org/) (v18 or higher)
 - [pnpm](https://pnpm.io/) (v8 or higher)
 
+---
+## Доставка версий **временно**
+
+pnpm run reset
+pnpm store prune
+pnpm pack
+cd packages/superdoc
+rm superdoc.tgz
+pnpm pack
+mv superdoc-*.tgz superdoc.tgz
+--
+cd /examples/collaboration/production/server/
+pnpm install
+pnpm run dev
+--
+cd /examples/collaboration/production/client
+pnpm update superdoc --latest
+rm -rf node_modules pnpm-lock.yaml
+pnpm store prune
+pnpm install
+pnpm run dev
+
+---
+
 ## Setup
 
 1.  **Установка зависимостей:**
