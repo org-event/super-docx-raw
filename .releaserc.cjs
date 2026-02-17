@@ -55,7 +55,9 @@ if (!isPrerelease) {
     {
       assets: [
         'packages/superdoc/CHANGELOG.md',
-        'packages/superdoc/package.json'  // Update paths to point to actual package
+        'packages/superdoc/package.json',
+        'packages/superdoc/dist',
+        'packages/superdoc/dist-types'  // Update paths to point to actual package
       ],
       message:
         'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
