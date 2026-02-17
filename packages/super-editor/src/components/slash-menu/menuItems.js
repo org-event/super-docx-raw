@@ -1,8 +1,8 @@
 import TableGrid from '../toolbar/TableGrid.vue';
 import AIWriter from '../toolbar/AIWriter.vue';
-import TableActions from '../toolbar/TableActions.vue';
+// import TableActions from '../toolbar/TableActions.vue'; // Removed unused import
 import LinkInput from '../toolbar/LinkInput.vue';
-import { TEXTS, ICONS, TRIGGERS } from './constants.js';
+import { TEXTS, ICONS, TRIGGERS, tableActionsOptions } from './constants.js';
 import { isTrackedChangeActionAllowed } from '@extensions/track-changes/permission-helpers.js';
 
 /**
@@ -206,18 +206,23 @@ export function getItems(context, customItems = [], includeDefaultItems = true) 
             return allowedTriggers.includes(trigger) && !isInTable;
           },
         },
-        {
-          id: 'edit-table',
-          label: TEXTS.editTable,
-          icon: ICONS.table,
-          component: TableActions,
+        // Flatten table actions
+        ...tableActionsOptions.map((option) => ({
+          id: option.command,
+          label: option.label,
+          icon: option.icon,
           isDefault: true,
+          action: (editor) => {
+            if (editor.commands[option.command]) {
+              editor.commands[option.command]();
+            }
+          },
           showWhen: (context) => {
             const { trigger, isInTable } = context;
             const allowedTriggers = [TRIGGERS.slash, TRIGGERS.click];
             return allowedTriggers.includes(trigger) && isInTable;
           },
-        },
+        })),
       ],
     },
     {

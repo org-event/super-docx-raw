@@ -40,6 +40,10 @@ vi.mock('../constants.js', () => ({
     slash: 'slash',
     click: 'click',
   },
+  tableActionsOptions: [
+    { command: 'addRowBefore', label: 'Add row before', icon: '<svg>add-row</svg>' },
+    { command: 'deleteTable', label: 'Delete table', icon: '<svg>delete-table</svg>' },
+  ],
 }));
 
 vi.mock('../../toolbar/TableGrid.vue', () => ({ default: { template: '<div>TableGrid</div>' } }));
@@ -395,13 +399,21 @@ describe('menuItems.js', () => {
       });
     });
 
-    it('should show edit-table item when in table', () => {
+    it('should show flattened table actions when in table', () => {
       mockContext.isInTable = true;
       const sections = getItems(mockContext);
       const generalSection = sections.find((s) => s.id === 'general');
-      const editTableItem = generalSection?.items.find((item) => item.id === 'edit-table');
 
-      expect(editTableItem).toBeDefined();
+      // Check for presence of some table actions
+      const addRowItem = generalSection?.items.find((item) => item.id === 'addRowBefore');
+      const deleteTableItem = generalSection?.items.find((item) => item.id === 'deleteTable');
+
+      expect(addRowItem).toBeDefined();
+      expect(deleteTableItem).toBeDefined();
+
+      // Ensure edit-table is NOT present
+      const editTableItem = generalSection?.items.find((item) => item.id === 'edit-table');
+      expect(editTableItem).toBeUndefined();
     });
 
     it('should hide insert-table item when in table', () => {
