@@ -1,40 +1,47 @@
-import plusIconSvg from '@superdoc/common/icons/plus-solid.svg?raw';
-import trashIconSvg from '@superdoc/common/icons/trash-can-solid.svg?raw';
-import wrenchIconSvg from '@superdoc/common/icons/wrench-solid.svg?raw';
-import borderNoneIconSvg from '@superdoc/common/icons/border-none-solid.svg?raw';
-import arrowsLeftRightIconSvg from '@superdoc/common/icons/arrows-left-right-solid.svg?raw';
-import arrowsToDotIconSvg from '@superdoc/common/icons/arrows-to-dot-solid.svg?raw';
-import magicWandIcon from '@superdoc/common/icons/magic-wand-solid.svg?raw';
-import linkIconSvg from '@superdoc/common/icons/link-solid.svg?raw';
-import tableIconSvg from '@superdoc/common/icons/table-solid.svg?raw';
-import scissorsIconSvg from '@superdoc/common/icons/scissors-solid.svg?raw';
-import copyIconSvg from '@superdoc/common/icons/copy-solid.svg?raw';
-import pasteIconSvg from '@superdoc/common/icons/paste-solid.svg?raw';
-import checkIconSvg from '@superdoc/common/icons/check-solid.svg?raw';
-import xMarkIconSvg from '@superdoc/common/icons/xmark-solid.svg?raw';
+import AddRowTopIcon from '../doc-icons/AddRowTopIcon.svg?raw';
+import AddRowBottomIcon from '../doc-icons/AddRowBottomIcon.svg?raw';
+import AddColLeftIcon from '../doc-icons/AddColLeftIcon.svg?raw';
+import AddColRightIcon from '../doc-icons/AddColRightIcon.svg?raw';
+import TrashIcon from '../doc-icons/TrashIcon.svg?raw';
+import RemoveRowIcon from '../doc-icons/RemoveRowIcon.svg?raw';
+import RemoveColIcon from '../doc-icons/RemoveColIcon.svg?raw';
+import TableCellMergeIcon from '../doc-icons/TableCellMergeIcon.svg?raw';
+import TableCellSplitIcon from '../doc-icons/TableCellSplitIcon.svg?raw';
+import PlusIcon from '../doc-icons/PlusIcon.svg?raw';
+import CheckIcon from '../doc-icons/CheckIcon.svg?raw';
+import XIcon from '../doc-icons/XIcon.svg?raw';
+import LinkIcon from '../doc-icons/LinkIcon.svg?raw';
+import TableIcon from '../doc-icons/TableIcon.svg?raw';
+import CopyIcon from '../doc-icons/CopyIcon.svg?raw';
+import ClipboardIcon from '../doc-icons/ClipboardIcon.svg?raw';
+import AiSparklesIcon from '../doc-icons/AiSparklesIcon.svg?raw';
+
+import Wrench from '../doc-icons/WrenchSolidIcon.svg?raw';
+import BorderNoneIcon from '../doc-icons/BorderNoneSolidIcon.svg?raw';
+import ScissorsIcon from '../doc-icons/ScissorsSolidIcon.svg?raw';
 
 export const ICONS = {
-  addRowBefore: plusIconSvg,
-  addRowAfter: plusIconSvg,
-  addColumnBefore: plusIconSvg,
-  addColumnAfter: plusIconSvg,
-  deleteRow: trashIconSvg,
-  deleteColumn: trashIconSvg,
-  deleteTable: trashIconSvg,
-  deleteBorders: borderNoneIconSvg,
-  mergeCells: arrowsToDotIconSvg,
-  splitCell: arrowsLeftRightIconSvg,
-  fixTables: wrenchIconSvg,
-  ai: magicWandIcon,
-  link: linkIconSvg,
-  table: tableIconSvg,
-  cut: scissorsIconSvg,
-  copy: copyIconSvg,
-  paste: pasteIconSvg,
-  addDocumentSection: plusIconSvg,
-  removeDocumentSection: trashIconSvg,
-  trackChangesAccept: checkIconSvg,
-  trackChangesReject: xMarkIconSvg,
+  addRowBefore: AddRowTopIcon,
+  addRowAfter: AddRowBottomIcon,
+  addColumnBefore: AddColLeftIcon,
+  addColumnAfter: AddColRightIcon,
+  deleteRow: RemoveRowIcon,
+  deleteColumn: RemoveColIcon,
+  deleteTable: TrashIcon,
+  deleteBorders: BorderNoneIcon,
+  mergeCells: TableCellMergeIcon,
+  splitCell: TableCellSplitIcon,
+  fixTables: Wrench,
+  ai: AiSparklesIcon,
+  link: LinkIcon,
+  table: TableIcon,
+  cut: ScissorsIcon,
+  copy: CopyIcon,
+  paste: ClipboardIcon,
+  addDocumentSection: PlusIcon,
+  removeDocumentSection: TrashIcon,
+  trackChangesAccept: CheckIcon,
+  trackChangesReject: XIcon,
 };
 
 // Table actions constant

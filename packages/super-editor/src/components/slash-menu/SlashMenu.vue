@@ -545,7 +545,7 @@ onBeforeUnmount(() => {
 }
 
 .slash-menu-items {
-  max-height: 300px;
+  max-height: max-content;
   overflow-y: auto;
 }
 
@@ -596,8 +596,8 @@ onBeforeUnmount(() => {
 }
 
 .slash-menu .slash-menu-item-icon svg {
-  height: 12px;
-  width: 12px;
+  height: 16px;
+  width: 16px;
 }
 
 .slash-menu-custom-item {

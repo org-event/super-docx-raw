@@ -37,10 +37,17 @@ import highlighterIcon from '@superdoc/common/icons/highlighter-icon.svg?raw';
 import magicWandIcon from '@superdoc/common/icons/magic-wand-solid.svg?raw';
 import tableIconSvg from '@superdoc/common/icons/table-solid.svg?raw';
 import tableColumnsIconSvg from '@superdoc/common/icons/table-columns-solid.svg?raw';
-import arrowsLeftRightIconSvg from '@superdoc/common/icons/arrows-left-right-solid.svg?raw';
-import arrowsToDotIconSvg from '@superdoc/common/icons/arrows-to-dot-solid.svg?raw';
-import plusIconSvg from '@superdoc/common/icons/plus-solid.svg?raw';
-import trashIconSvg from '@superdoc/common/icons/trash-can-solid.svg?raw';
+
+import AddRowTopIcon from '../doc-icons/AddRowTopIcon.svg?raw';
+import AddRowBottomIcon from '../doc-icons/AddRowBottomIcon.svg?raw';
+import AddColLeftIcon from '../doc-icons/AddColLeftIcon.svg?raw';
+import AddColRightIcon from '../doc-icons/AddColRightIcon.svg?raw';
+import RemoveRowIcon from '../doc-icons/RemoveRowIcon.svg?raw';
+import RemoveColIcon from '../doc-icons/RemoveColIcon.svg?raw';
+import TableCellMergeIcon from '../doc-icons/TableCellMergeIcon.svg?raw';
+import TableCellSplitIcon from '../doc-icons/TableCellSplitIcon.svg?raw';
+
+import trashIconSvg from '../doc-icons/TrashIcon.svg?raw';
 import wrenchIconSvg from '@superdoc/common/icons/wrench-solid.svg?raw';
 import borderNoneIconSvg from '@superdoc/common/icons/border-none-solid.svg?raw';
 import upDownIconSvg from '@superdoc/common/icons/up-down.svg?raw';
@@ -93,14 +100,14 @@ export const toolbarIcons = {
   ai: magicWandIcon,
   table: tableIconSvg,
   tableActions: tableColumnsIconSvg,
-  splitCell: arrowsLeftRightIconSvg,
-  mergeCells: arrowsToDotIconSvg,
-  addRowBefore: plusIconSvg,
-  addRowAfter: plusIconSvg,
-  addColumnBefore: plusIconSvg,
-  addColumnAfter: plusIconSvg,
-  deleteRow: trashIconSvg,
-  deleteColumn: trashIconSvg,
+  splitCell: TableCellSplitIcon,
+  mergeCells: TableCellMergeIcon,
+  addRowBefore: AddRowTopIcon,
+  addRowAfter: AddRowBottomIcon,
+  addColumnBefore: AddColLeftIcon,
+  addColumnAfter: AddColRightIcon,
+  deleteRow: RemoveRowIcon,
+  deleteColumn: RemoveColIcon,
   deleteTable: trashIconSvg,
   deleteBorders: borderNoneIconSvg,
   fixTables: wrenchIconSvg,
