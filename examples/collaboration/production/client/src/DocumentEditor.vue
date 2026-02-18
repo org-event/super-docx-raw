@@ -144,6 +144,7 @@ const init = async () => {
       isNewFile: false,
     },
     pagination: true,
+    rulers: true,
     colors: ['#a11134', '#2a7e34', '#b29d11', '#2f4597', '#ab5b22'],
     user,
     modules: {
@@ -196,6 +197,7 @@ const init = async () => {
   // Conditionally add toolbar if not hidden
   if (!hideToolbar) {
     config.toolbar = '#superdoc-toolbar';
+    config.rulerContainer = '#superdoc-ruler';
   }
 
   superdoc.value = new SuperDoc(config);
@@ -241,6 +243,7 @@ onBeforeUnmount(() => {
     </div>
     <div v-if="showToolbar" class="superdoc-toolbar">
       <div id="superdoc-toolbar"></div>
+      <div id="superdoc-ruler"></div>
     </div>
     <div id="superdoc"></div>
   </div>

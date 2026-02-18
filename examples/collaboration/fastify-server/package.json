@@ -9,18 +9,18 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@superdoc-dev/superdoc-yjs-collaboration": "^1.0.0",
-    "@fastify/websocket": "^11.1.0",
-    "fastify": "^5.3.3",
-    "y-protocols": "^1.0.6",
+    "@fastify/websocket": "^11.2.0",
+    "@superdoc-dev/superdoc-yjs-collaboration": "^1.0.2",
+    "fastify": "^5.7.4",
+    "y-protocols": "^1.0.7",
     "y-websocket": "^3.0.0",
-    "yjs": "^13.6.27"
+    "yjs": "^13.6.29"
   },
   "devDependencies": {
-    "@types/node": "^24.10.0",
+    "@types/node": "^24.10.13",
     "@types/ws": "^8.18.1",
-    "nodemon": "^3.1.10",
-    "tsx": "^4.20.6",
+    "nodemon": "^3.1.11",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }

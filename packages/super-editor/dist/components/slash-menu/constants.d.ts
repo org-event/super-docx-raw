@@ -1,25 +1,25 @@
 export namespace ICONS {
-    export { plusIconSvg as addRowBefore };
-    export { plusIconSvg as addRowAfter };
-    export { plusIconSvg as addColumnBefore };
-    export { plusIconSvg as addColumnAfter };
-    export { trashIconSvg as deleteRow };
-    export { trashIconSvg as deleteColumn };
-    export { trashIconSvg as deleteTable };
-    export { borderNoneIconSvg as deleteBorders };
-    export { arrowsToDotIconSvg as mergeCells };
-    export { arrowsLeftRightIconSvg as splitCell };
-    export { wrenchIconSvg as fixTables };
-    export { magicWandIcon as ai };
-    export { linkIconSvg as link };
-    export { tableIconSvg as table };
-    export { scissorsIconSvg as cut };
-    export { copyIconSvg as copy };
-    export { pasteIconSvg as paste };
-    export { plusIconSvg as addDocumentSection };
-    export { trashIconSvg as removeDocumentSection };
-    export { checkIconSvg as trackChangesAccept };
-    export { xMarkIconSvg as trackChangesReject };
+    export { AddRowTopIcon as addRowBefore };
+    export { AddRowBottomIcon as addRowAfter };
+    export { AddColLeftIcon as addColumnBefore };
+    export { AddColRightIcon as addColumnAfter };
+    export { RemoveRowIcon as deleteRow };
+    export { RemoveColIcon as deleteColumn };
+    export { TrashIcon as deleteTable };
+    export { BorderNoneIcon as deleteBorders };
+    export { TableCellMergeIcon as mergeCells };
+    export { TableCellSplitIcon as splitCell };
+    export { Wrench as fixTables };
+    export { AiSparklesIcon as ai };
+    export { LinkIcon as link };
+    export { TableIcon as table };
+    export { ScissorsIcon as cut };
+    export { CopyIcon as copy };
+    export { ClipboardIcon as paste };
+    export { PlusIcon as addDocumentSection };
+    export { TrashIcon as removeDocumentSection };
+    export { CheckIcon as trackChangesAccept };
+    export { XIcon as trackChangesReject };
 }
 export namespace TEXTS {
     let addRowBefore: string;

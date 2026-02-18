@@ -12,10 +12,10 @@
   },
   "description": "",
   "dependencies": {
-    "superdoc": "0.20.0-next.13",
-    "express": "^4.21.2"
+    "express": "^4.22.1",
+    "superdoc": "file:../../../packages/superdoc/superdoc.tgz"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.11"
   }
 }

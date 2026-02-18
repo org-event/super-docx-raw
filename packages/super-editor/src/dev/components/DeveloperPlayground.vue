@@ -2,7 +2,7 @@
 import '@superdoc/super-editor/style.css';
 import '@superdoc/common/styles/common-styles.css';
 
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, reactive } from 'vue';
 import { NMessageProvider } from 'naive-ui';
 import { SuperEditor } from '@superdoc/super-editor';
 import { PresentationEditor } from '@core/presentation-editor/index.js';
@@ -77,15 +77,16 @@ const editorOptions = computed(() => {
   return {
     documentId: 'dev-123',
     user,
-    rulers: true,
+    rulers: showRulers.value,
     onCreate,
     onCommentClicked,
     onCommentsLoaded,
     suppressSkeletonLoader: true,
     users: [], // For comment @-mentions, only users that have access to the document
-    pagination: true,// useLayoutEngine.value,
+    pagination: true, // useLayoutEngine.value,
     annotations: true,
     editorCtor: useLayoutEngine.value ? PresentationEditor : undefined,
+    rulerContainer: '#toolbar-ruler',
   };
 });
 
@@ -118,7 +119,13 @@ const attachAnnotationEventHandlers = () => {
 };
 
 const initToolbar = () => {
-  return new SuperToolbar({ element: 'toolbar', editor: activeEditor, isDev: true, pagination: true });
+  return new SuperToolbar({
+    element: 'toolbar',
+    editor: activeEditor,
+    isDev: true,
+    pagination: true,
+    superdoc: mockSuperDoc,
+  });
 };
 
 /* For pagination debugging / visual cues */
@@ -156,11 +163,21 @@ onMounted(async () => {
   currentFile.value = await getFileObject(BlankDOCX, 'blank_document.docx', DOCX);
 });
 
+const showRulers = ref(true);
+const superdocStore = reactive({ activeZoom: 100 });
+
 const toggleLayoutEngine = () => {
   const nextValue = !useLayoutEngine.value;
   const url = new URL(window.location.href);
   url.searchParams.set('layout', nextValue ? '1' : '0');
   window.location.href = url.toString();
+};
+
+const mockSuperDoc = {
+  toggleRuler: () => {
+    showRulers.value = !showRulers.value;
+  },
+  superdocStore,
 };
 
 const logDocumentStructure = () => {
@@ -221,7 +238,10 @@ const logDocumentStructure = () => {
         </div>
       </div>
 
-      <div id="toolbar" class="sd-toolbar"></div>
+      <div class="sticky-header">
+        <div id="toolbar" class="sd-toolbar"></div>
+        <div id="toolbar-ruler"></div>
+      </div>
 
       <div class="dev-app__main">
         <div class="dev-app__view" id="dev-parent">
@@ -256,6 +276,14 @@ const logDocumentStructure = () => {
   background: white;
   position: relative;
   z-index: 1;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  border-bottom: 1px solid #eee;
 }
 
 .page-spacer {

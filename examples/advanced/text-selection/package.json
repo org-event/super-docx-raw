@@ -7,14 +7,14 @@
     "dev": "vite"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "styled-jsx": "^5.1.7",
-    "superdoc": "workspace:*"
+    "superdoc": "file:../../../packages/superdoc/superdoc.tgz"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.4",
-    "prosemirror-state": "^1.4.3",
-    "vite": "^7.0.5"
+    "@vitejs/plugin-react": "^4.7.0",
+    "prosemirror-state": "^1.4.4",
+    "vite": "^7.3.1"
   }
 }

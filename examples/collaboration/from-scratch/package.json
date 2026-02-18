@@ -17,9 +17,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "lib0": "^0.2.102",
-    "y-leveldb": "^0.1.0",
-    "y-protocols": "^1.0.5",
-    "yjs": "^13.6.27"
+    "lib0": "^0.2.117",
+    "y-leveldb": "^0.1.2",
+    "y-protocols": "^1.0.7",
+    "yjs": "^13.6.29"
   }
 }

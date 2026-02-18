@@ -7,12 +7,12 @@
     "start": "tsx src/index.ts"
   },
   "dependencies": {
-    "superdoc": "workspace:*",
-    "jsdom": "^27.3.0"
+    "jsdom": "^27.4.0",
+    "superdoc": "file:../../../packages/superdoc/superdoc.tgz"
   },
   "devDependencies": {
     "@types/jsdom": "^27.0.0",
-    "@types/node": "^25.0.2",
+    "@types/node": "^25.2.3",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
