@@ -1,4 +1,0 @@
-import type { Schema } from 'prosemirror-model';
-import type { SchemaSummaryJSON } from './types/EditorSchema.js';
-export declare function buildSchemaSummary(schema: Schema, schemaVersion?: string): SchemaSummaryJSON;
-//# sourceMappingURL=schema-summary.d.ts.map
