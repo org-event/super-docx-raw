@@ -21,6 +21,7 @@ export const toolbarTextsRu = {
   deleteColumn: 'Удалить столбец',
   deleteTable: 'Удалить таблицу',
   removeBorders: 'Убрать границы',
+  toggleBorders: 'Включить/выключить границы',
   mergeCells: 'Объединить ячейки',
   splitCell: 'Разделить ячейку',
   fixTables: 'Исправить таблицы',

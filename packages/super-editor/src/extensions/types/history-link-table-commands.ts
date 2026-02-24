@@ -37,6 +37,7 @@ export interface HistoryLinkTableCommandAugmentations {
   setCellSelection: (pos: { anchorCell: number; headCell: number }) => boolean;
   setCellBackground: (value: string) => boolean;
   deleteCellAndTableBorders: () => boolean;
+  toggleCellAndTableBorders: () => boolean;
 }
 
 declare module '../../core/types/ChainedCommands.js' {

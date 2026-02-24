@@ -1090,6 +1090,76 @@ export const Table = Node.create({
 
           return true;
         },
+
+      /**
+       * Toggle borders for table and its cells
+       * @category Command
+       * @returns {Function} Command
+       * @example
+       * toggleCellAndTableBorders()
+       */
+      toggleCellAndTableBorders:
+        () =>
+        ({ state, tr }) => {
+          if (!isInTable(state)) {
+            return false;
+          }
+
+          const table = findParentNode((node) => node.type.name === this.name)(state.selection);
+
+          if (!table) {
+            return false;
+          }
+
+          const hasBorders = table.node.attrs.borders?.top?.size > 0;
+
+          const from = table.pos;
+          const to = table.pos + table.node.nodeSize;
+
+          if (hasBorders) {
+            // remove from cells
+            state.doc.nodesBetween(from, to, (node, pos) => {
+              if (['tableCell', 'tableHeader'].includes(node.type.name)) {
+                tr.setNodeMarkup(pos, undefined, {
+                  ...node.attrs,
+                  borders: createCellBorders({ size: 0, space: 0, val: 'none', color: 'auto' }),
+                });
+              }
+            });
+
+            // remove from table
+            tr.setNodeMarkup(table.pos, undefined, {
+              ...table.node.attrs,
+              borders: createTableBorders({ size: 0 }),
+              tableProperties: {
+                ...table.node.attrs.tableProperties,
+                borders: createTableBorders({ size: 0, space: 0, val: 'none', color: 'auto' }),
+              },
+            });
+          } else {
+            // add to cells
+            state.doc.nodesBetween(from, to, (node, pos) => {
+              if (['tableCell', 'tableHeader'].includes(node.type.name)) {
+                tr.setNodeMarkup(pos, undefined, {
+                  ...node.attrs,
+                  borders: createCellBorders(),
+                });
+              }
+            });
+
+            // add to table
+            tr.setNodeMarkup(table.pos, undefined, {
+              ...table.node.attrs,
+              borders: createTableBorders(),
+              tableProperties: {
+                ...table.node.attrs.tableProperties,
+                borders: createTableBorders(),
+              },
+            });
+          }
+
+          return true;
+        },
     };
   },
 

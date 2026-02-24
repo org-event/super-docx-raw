@@ -53,6 +53,7 @@ export const TEXTS = {
   deleteRow: 'Удалить строку',
   deleteColumn: 'Удалить столбец',
   deleteTable: 'Удалить таблицу',
+  toggleBorders: 'Включить/выключить границы',
   removeBorders: 'Убрать границы',
   mergeCells: 'Объединить ячейки',
   splitCell: 'Разделить ячейку',
@@ -140,10 +141,19 @@ export const tableActionsOptions = [
     label: TEXTS.removeBorders,
     command: 'deleteCellAndTableBorders',
     icon: ICONS.deleteBorders,
-    bottomBorder: true,
     props: {
       'data-item': 'btn-tableActions-option',
       ariaLabel: 'Delete cell and table borders',
+    },
+  },
+  {
+    label: TEXTS.toggleBorders,
+    command: 'toggleCellAndTableBorders',
+    icon: ICONS.deleteBorders,
+    bottomBorder: true,
+    props: {
+      'data-item': 'btn-tableActions-option',
+      ariaLabel: 'Toggle cell and table borders',
     },
   },
   {

@@ -526,6 +526,15 @@ export const makeDefaultItems = ({
       label: toolbarTexts.removeBorders,
       command: 'deleteCellAndTableBorders',
       icon: toolbarIcons.deleteBorders,
+      props: {
+        'data-item': 'btn-tableActions-option',
+        ariaLabel: 'Delete cell and table borders',
+      },
+    },
+    {
+      label: toolbarTexts.toggleBorders,
+      command: 'toggleCellAndTableBorders',
+      icon: toolbarIcons.deleteBorders,
       bottomBorder: true,
       props: {
         'data-item': 'btn-tableActions-option',
